@@ -9,18 +9,29 @@ public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rb2d;
     private Animator myAnimator;
-    [SerializeField] float speed = 2.0f;
     public float horizMovement;
-    private bool facingRight = true;    
+    [SerializeField] float speed = 2.0f;
+    private bool facingRight = true;
 
-    void Start()
+    public float jumpForce;
+    public bool grounded;    
+    [SerializeField] Transform checkGround;
+    [SerializeField] float radOCircle;
+    [SerializeField] LayerMask isGround;
+    
+    private void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
     }
-    void Update()
+    private void Update()
     {
         horizMovement = Input.GetAxisRaw("Horizontal");
+        grounded = Physics2D.OverlapCircle(checkGround.position,radOCircle,isGround);
+        if (Input.GetButtonDown("Jump") && grounded)
+        {
+            rb2d.velocity = new Vector2(rb2d.velocity.x, jumpForce);
+        }
     }
 
     private void FixedUpdate()
@@ -39,5 +50,10 @@ public class PlayerMovement : MonoBehaviour
             theScale.x *= -1;
             transform.localScale = theScale;
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawSphere(checkGround.position, radOCircle);
     }
 }
