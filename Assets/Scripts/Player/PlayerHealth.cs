@@ -22,5 +22,21 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth -= 1;
         healthBar.SetHealth(currentHealth);
+        animator.SetTrigger("hit");
+        if (currentHealth <= 0)
+        {
+            GetComponent<PlayerMovement>().enabled = false;
+            GetComponent<PlayerJump>().enabled = false;
+            GetComponent<PlayerCombat>().enabled = false;
+            animator.SetBool("isDead", true);
+        }
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            TakeDamage();
+        }
     }
 }
