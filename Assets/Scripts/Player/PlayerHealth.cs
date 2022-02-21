@@ -5,6 +5,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] int maxHealth = 5;
     [SerializeField] int currentHealth;
     [SerializeField] Animator animator;
+    [SerializeField] private EnemyMelee enemyMelee;
 
     [SerializeField] HealthBar healthBar;
     private void Start()
