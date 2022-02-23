@@ -6,6 +6,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] int currentHealth;
     [SerializeField] Animator animator;
     [SerializeField] private EnemyMelee enemyMelee;
+    [SerializeField] CircleCollider2D circleCollider2D;
 
     [SerializeField] HealthBar healthBar;
     private void Start()
@@ -21,6 +22,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage()
     {
+        //Debug.Log("asd");
         currentHealth -= 1;
         healthBar.SetHealth(currentHealth);
         animator.SetTrigger("hit");
@@ -35,6 +37,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("hit");
         if (collision.gameObject.CompareTag("Enemy"))
         {
             TakeDamage();

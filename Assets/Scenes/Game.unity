@@ -656,7 +656,7 @@ GameObject:
   - component: {fileID: 421987250}
   - component: {fileID: 421987252}
   - component: {fileID: 421987253}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Obstacles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1917,6 +1917,7 @@ GameObject:
   - component: {fileID: 1453679355}
   - component: {fileID: 1453679356}
   - component: {fileID: 1453679357}
+  - component: {fileID: 1453679358}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -2017,7 +2018,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1453679346}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -2033,7 +2034,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1453679346}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 70fa63cf6229d2c499996637a6cce950, type: 2}
   m_IsTrigger: 0
@@ -2050,7 +2051,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.18995675, y: 0.4341172}
+  m_Size: {x: 0.14894098, y: 0.4341172}
   m_EdgeRadius: 0
 --- !u!50 &1453679352
 Rigidbody2D:
@@ -2126,6 +2127,7 @@ MonoBehaviour:
   currentHealth: 0
   animator: {fileID: 1453679347}
   enemyMelee: {fileID: 1241662919}
+  circleCollider2D: {fileID: 1453679350}
   healthBar: {fileID: 578200987}
 --- !u!114 &1453679356
 MonoBehaviour:
@@ -2160,6 +2162,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1453679347}
   playerHealth: {fileID: 1453679355}
+--- !u!70 &1453679358
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1453679346}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 70fa63cf6229d2c499996637a6cce950, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.032390356, y: -0.017408133}
+  m_Size: {x: 0.21574831, y: 0.60792994}
+  m_Direction: 0
 --- !u!1 &1466008357
 GameObject:
   m_ObjectHideFlags: 0
@@ -7435,6 +7453,14 @@ PrefabInstance:
       propertyPath: playerHealth
       value: 
       objectReference: {fileID: 1453679355}
+    - target: {fileID: 8302726803051690114, guid: 2411423bae326c842b8aea2702b052c2, type: 3}
+      propertyPath: m_Mass
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8302726803051690114, guid: 2411423bae326c842b8aea2702b052c2, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8302726803051690116, guid: 2411423bae326c842b8aea2702b052c2, type: 3}
       propertyPath: m_Color.b
       value: 1
