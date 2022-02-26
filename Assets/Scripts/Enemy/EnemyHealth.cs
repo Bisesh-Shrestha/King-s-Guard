@@ -27,6 +27,10 @@ public class EnemyHealth : MonoBehaviour
     void Die()
     {
         animator.SetBool("isDead", true);
+        if (transform.parent != null)
+        {
+            GetComponentInParent<EnemyPatrol>().enabled = false;
+        }
     }
 
     void DisableEnemy()

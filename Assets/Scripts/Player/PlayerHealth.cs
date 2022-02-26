@@ -37,7 +37,6 @@ public class PlayerHealth : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("hit");
         if (collision.gameObject.CompareTag("Enemy"))
         {
             TakeDamage();
