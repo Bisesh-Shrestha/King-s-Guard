@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] int maxHealth = 5;
