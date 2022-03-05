@@ -10,6 +10,7 @@ public class PlayerJump : MonoBehaviour
     [SerializeField] float jumpTime;
     private float jumpTimeCounter;
     private bool stoppedjumping;
+    private bool doubleJump;
 
     [Header("Ground Details")]
     private bool grounded;
@@ -35,11 +36,20 @@ public class PlayerJump : MonoBehaviour
             myAnimator.ResetTrigger("jump");
             myAnimator.SetBool("falling", false);
         }
-        if (Input.GetButtonDown("Jump") && grounded)
+        if (Input.GetButtonDown("Jump"))
         {
-            rb2d.velocity = new Vector2(rb2d.velocity.x, jumpForce);
-            stoppedjumping = false;
-            myAnimator.SetTrigger("jump");
+            if (grounded || doubleJump)
+            {
+                rb2d.velocity = new Vector2(rb2d.velocity.x, jumpForce);
+                stoppedjumping = false;
+                myAnimator.SetTrigger("jump");
+
+                doubleJump = !doubleJump;
+            }
+        }
+        if (grounded && !Input.GetButton("Jump"))
+        {
+            doubleJump = false;
         }
         if (Input.GetButton("Jump") && !stoppedjumping && (jumpTimeCounter > 0))
         {
