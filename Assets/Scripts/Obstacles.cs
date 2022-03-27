@@ -7,7 +7,7 @@ public class Obstacles : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            playerHealth.TakeDamage();
+            playerHealth.TakeDamage(1);
         }
     }
 }

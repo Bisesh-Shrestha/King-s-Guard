@@ -35,7 +35,7 @@ public class EnemyMelee : MonoBehaviour
     {
         if (PlayerInSight())
         {
-            playerHealth.TakeDamage();
+            playerHealth.TakeDamage(1);
         }
     }
     private void OnDrawGizmos()

@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 19d8e174aab3630429bad2eb61b95330, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -137,4 +137,3 @@ MonoBehaviour:
   speed: 10
   rd: {fileID: 6093258950729294238}
   flameDamage: 50
-  impactEffect: {fileID: 1242230521972243273, guid: e38f011b32b1f7945abdd6f4166082de, type: 3}

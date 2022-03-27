@@ -19,10 +19,10 @@ public class PlayerHealth : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
     }
 
-    public void TakeDamage()
+    public void TakeDamage(int damage)
     {
         //Debug.Log("asd");
-        currentHealth -= 1;
+        currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
         animator.SetTrigger("hit");
         if (currentHealth <= 0)
@@ -38,7 +38,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            TakeDamage();
+            TakeDamage(1);
         }
     }
 }
