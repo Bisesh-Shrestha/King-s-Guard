@@ -5,6 +5,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] int maxHealth = 100;
     int currentHealth;
+    public bool isdead=false;
     private void Start()
     {
         MaxHealth();
@@ -21,6 +22,7 @@ public class EnemyHealth : MonoBehaviour
         animator.SetTrigger("hit");
         if (currentHealth <= 0)
         {
+            isdead = true;
             Die();
         }
     }

@@ -5,6 +5,7 @@ public class Respawns : MonoBehaviour
     private Vector3 respawnPoint;
     [SerializeField] Animator animator;
     [SerializeField] private PlayerHealth playerHealth;
+    [SerializeField] private EnemyHealth enemyHealth;
     private void Start()
     {
         respawnPoint = transform.position;
@@ -25,6 +26,7 @@ public class Respawns : MonoBehaviour
         GetComponent<PlayerMovement>().enabled = true;
         GetComponent<PlayerJump>().enabled = true;
         GetComponent<PlayerCombat>().enabled = true;
+        enemyHealth.MaxHealth();
     }
 
 }

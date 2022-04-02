@@ -11,6 +11,7 @@ public class PlayerJump : MonoBehaviour
     private float jumpTimeCounter;
     private bool stoppedjumping;
     private bool doubleJump;
+    public bool checkdoubleJump=false;
 
     [Header("Ground Details")]
     private bool grounded;
@@ -21,6 +22,7 @@ public class PlayerJump : MonoBehaviour
     private void Start()
     {
         jumpTimeCounter = jumpTime;
+        doubleJump = false;
     }
     private void Update()
     {
@@ -43,8 +45,10 @@ public class PlayerJump : MonoBehaviour
                 rb2d.velocity = new Vector2(rb2d.velocity.x, jumpForce);
                 stoppedjumping = false;
                 myAnimator.SetTrigger("jump");
-
-                doubleJump = !doubleJump;
+                if (checkdoubleJump)
+                {
+                    doubleJump = !doubleJump;
+                }                
             }
         }
         if (grounded && !Input.GetButton("Jump"))

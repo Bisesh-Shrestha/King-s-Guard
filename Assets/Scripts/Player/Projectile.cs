@@ -6,21 +6,24 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] Transform firePoint;
     [SerializeField] GameObject flamePrefab;
+    public bool checkprojectile = false;
 
 
     // Update is called once per frame
     void Update()
     {
         Shoot();
-
     }
 
     void Shoot()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (checkprojectile)
         {
-            Instantiate(flamePrefab, firePoint.position, firePoint.rotation);
-        }
+            if (Input.GetButtonDown("Fire1"))
+            {
+                Instantiate(flamePrefab, firePoint.position, firePoint.rotation);
+            }
 
+        }     
     }
 }

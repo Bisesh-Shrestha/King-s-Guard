@@ -8,6 +8,7 @@ public class IncreaseHealth : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             playerHealth.MaxHealth();
+            Destroy(gameObject);
         }
     }    
 }

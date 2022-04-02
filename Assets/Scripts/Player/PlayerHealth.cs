@@ -5,7 +5,6 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] int currentHealth;
     [SerializeField] Animator animator;
     [SerializeField] private EnemyMelee enemyMelee;
-    [SerializeField] CircleCollider2D circleCollider2D;
 
     [SerializeField] HealthBar healthBar;
     private void Start()

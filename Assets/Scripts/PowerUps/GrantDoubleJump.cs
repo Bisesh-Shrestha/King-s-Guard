@@ -2,16 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Teleport : MonoBehaviour
+public class GrantDoubleJump : MonoBehaviour
 {
-    [SerializeField] GameObject player;
-
-
+    [SerializeField] PlayerJump playerJump;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            player.transform.position = new Vector2(40, -13);
+            playerJump.checkdoubleJump = true;
+            Destroy(gameObject);
         }
     }
 }
