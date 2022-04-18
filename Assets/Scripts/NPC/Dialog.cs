@@ -48,7 +48,7 @@ public class Dialog : MonoBehaviour
         }
         else
         {
-            textDisplay.text = "Good talk";
+            textDisplay.text = "Best of Luck";
             DialogPanel.SetActive(false);
         }
     }
